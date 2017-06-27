@@ -41,7 +41,6 @@ while err:
         err = False
     except (ValueError, EOFError):
         print("Please enter a valid year.")
-        pass
     
 print("You were born in the Year of the", find_animal(year))
 
