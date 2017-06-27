@@ -11,10 +11,7 @@ import sys
 def print_cblanks(columns, cblanks):
     while columns > 0:
         print("+", end="")
-        cb = 0
-        while cb < cblanks:
-            print("-", end="")
-            cb+=1
+        print(cblanks * "-", end="")
         columns-=1
     print()
 
@@ -23,10 +20,7 @@ def print_rblanks(columns, rblanks, cblanks):
         col = 0
         while col < columns:
             print("|", end="")
-            cb = 0
-            while cb < cblanks:
-                print(" ", end="")
-                cb+=1
+            print(cblanks * " ", end="")
             col+=1
         print()
         rblanks-=1
