@@ -4,6 +4,8 @@ christmas.py
 Gabrielle Chen
 Homework 4
 July 6, 2017
+
+Output the lyrics to "The Twelve Days of Christmas"
 """
 
 import sys
@@ -20,11 +22,12 @@ for index in range(len(ordinal)):
     print("On the", ordinal[index], "day of Christmas")
     print("my true love sent to me:")
     rlist = items[index::-1]
-    if ordinal[index]=="first":
-        print("A ", end="")
     for item in rlist:
-        if ordinal[index]!="first" and item==items[0]:
-            print("and a ", end="")
+        if item==items[0]:
+            if ordinal[index]=="first":
+                print("a ", end="")
+            else:
+                print("and a ", end="")
         print(item)
     print()
 
