@@ -28,4 +28,5 @@ for line in lines:
 
 print("Number of vowels deleted:", count)
 
+lines.close()
 sys.exit(0)
