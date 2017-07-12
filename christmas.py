@@ -21,9 +21,8 @@ for index in range(len(ordinal)):
     print("my true love sent to me:")
     rlist = items[index::-1]
     for item in rlist:
-        if item==items[0]:
-            if ordinal[index]!="first":
-                print("and ", end="")
+        if item==items[0] and ordinal[index]!="first":
+            print("and ", end="")
         print(item)
     print()
 
