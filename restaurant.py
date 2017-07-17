@@ -31,14 +31,18 @@ seen = set()
 query = input("Enter a street name (e.g., Wall Street, 18th Ave): ")
 
 for line in lines:
-    if line[4] == query.upper() and line[0] not in seen:
-        restaurants.append(line)
-        seen.add(line[0])
+    try:
+        check = int(line[3])
+        if line[4] == query.upper() and line[0] not in seen and line[1]!="":
+            restaurants.append(line)
+            seen.add(line[0])
+    except ValueError:
+        pass
 
 csvfile.close()
 
 def score(line):
-    return line[3]
+    return int(line[3])
 
 if len(restaurants)==0:
     print("No results found")
