@@ -49,6 +49,6 @@ if len(restaurants)==0:
 else:
     restaurants.sort(key=score)
     for line in restaurants:
-        print("{:>4}".format(line[3]), line[4], ",", "{:9}".format(line[2]), "-", line[1])
+        print("{:>5}".format(line[3]), line[4], ",", "{:9}".format(line[2]), "-", line[1])
         
 sys.exit(0)
