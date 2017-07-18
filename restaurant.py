@@ -35,15 +35,16 @@ query = input("Enter a street name (e.g., Wall Street, 18th Ave): ")
 for line in lines:
     try:
         check = int(line[3])
-        if line[4] == query.upper() and line[0] not in seen and line[1]!="":
-            restaurants.append(line)
-            seen.add(line[0])
-            if slength < len(line[3]):
-                slength = len(line[3])
-            if blength < len(line[2]):
-                blength = len(line[2])
     except ValueError:
-        pass
+        continue
+
+    if line[4] == query.upper() and line[0] not in seen and line[1]!="":
+        restaurants.append(line)
+        seen.add(line[0])
+        if slength < len(line[3]):
+            slength = len(line[3])
+        if blength < len(line[2]):
+            blength = len(line[2])
 
 csvfile.close()
 
@@ -55,6 +56,6 @@ if len(restaurants)==0:
 else:
     restaurants.sort(key=score)
     for line in restaurants:
-        print("{:>{}}".format(line[3], slength), line[4], ",", "{:{}}".format(line[2], blength), "-", line[1])
+        print("{:>{}} {}, {:{}} - {}".format(line[3], slength, line[4], line[2], blength, line[1]))
         
 sys.exit(0)
