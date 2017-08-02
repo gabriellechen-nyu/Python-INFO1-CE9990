@@ -9,20 +9,18 @@ July 27, 2017
 import sys
 import os
 
-file = os.popen("ps -A -o comm")
+file = os.popen("/Library/Frameworks/Python.framework/Versions/3.6/bin/pip3 list --format=legacy")
 lines = file.readlines()
 status = file.close()
 
 if status != None:
-    print("\"ps -A -o comm\" produced exit status", status)
+    print("/Library/Frameworks/Python.framework/Versions/3.6/bin/pip3 list produced exit status", status)
     sys.exit(1)
 
-lines = set(lines[1:])
-lines = [line.rstrip() for line in lines]
-lines = [line.split("/")[-1] for line in lines]
-lines = sorted(lines, key=len)
+count = 0
+for line in lines:
+    count+=1
 
-for i, line in enumerate(lines, start=1):
-    print("{:3} {}".format(i, line))
+print("Number of installed packages:", count)
 
 sys.exit(0)
